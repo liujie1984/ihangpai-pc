@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta name="author" content="jiong">
+    <meta http-equiv="Cache-Control" content="max-age=60">
+    <meta name="robots" content="all">
+    <meta name="description" content="航拍交流平台">
+    <meta name="keywords" content="酷派圈，爱航拍，航拍，摄影，大疆，无人机，零度，四轴，飞手">
+    <meta name="viewport" content="width=device-width">
+    <title>首页</title>
+    <style>
+        #home{width: 1000px;margin: 0 auto;}
+        #home-top{width: 1000px;height: 400px;}
+        #home-top-banner{width: 600px;height: 400px;float: left;overflow: hidden;}
+        #home-top-banner-img li img{width: 600px;height: 400px;}
+        #home-top-banner-hover{position: absolute;top: 380px;left: 400px;}
+        #home-top-banner-hover li{display: inline-block;width: 10px;height: 10px;border-radius: 5px;border: 1px solid blueviolet;
+        background-color: blue;}
+        #home-top-news{width: 400px;height: 400px;float: left}
+
+    </style>
+</head>
+<body>
+<div id="home">
+    <div id="home-top">
+        <div id="home-top-banner">
+            <ul id="home-top-banner-img">
+                <li id="home-top-banner-img-0"><img src="http://7xlavy.com2.z0.glb.qiniucdn.com/eyedav8-15.1.jpg" alt=""/></li>
+                <li id="home-top-banner-img-1"><img src="http://7xlavy.com2.z0.glb.qiniucdn.com/eyeNick-144.1.jpg" alt=""/></li>
+                <li id="home-top-banner-img-2"><img src="http://7xlavy.com2.z0.glb.qiniucdn.com/eyeNick-161.2.jpg" alt=""/></li>
+                <li id="home-top-banner-img-3"><img src="http://7xlavy.com2.z0.glb.qiniucdn.com/eyedav8-133.jpg" alt=""/></li>
+                <li id="home-top-banner-img-4"><img src="http://7xlavy.com2.z0.glb.qiniucdn.com/dav8-62.8.jpg" alt=""/></li>
+            </ul>
+            <ul id="home-top-banner-hover">
+                <li id="home-top-banner-hover-0"></li>
+                <li id="home-top-banner-hover-1"></li>
+                <li id="home-top-banner-hover-2"></li>
+                <li id="home-top-banner-hover-3"></li>
+                <li id="home-top-banner-hover-4"></li>
+            </ul>
+        </div>
+        <div id="home-top-news">
+            <div id="home-top-news-title">
+                <span>业内资讯</span>
+                <span>></span>
+            </div>
+            <div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+<script src="http://7xqamv.com2.z0.glb.qiniucdn.com/js-sea.js"></script>
+<script>
+    seajs.config({
+        base: '../sea-modules/',
+        alias: {
+            'jquery': 'http://7xqamv.com2.z0.glb.qiniucdn.com/js-jquery.js'
+        }
+    });
+    // For development
+    if (location.href.indexOf("?dev") > 0) {
+        seajs.use('../static/src/home', function () {
+        });
+    }
+    // For production
+    else {
+        seajs.use('../static/dist/home',function(){
+        });
+    }
+</script>
+</body>
+</html>

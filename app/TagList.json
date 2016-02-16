@@ -1,0 +1,92 @@
+{
+  "code": 0,
+  "msg": "OK",
+  "data": {
+    "next_page_token": "",
+    "list": [
+      {
+        "tag_id": 24,
+        "tag_name": "风景",
+        "thumbnail_url": "",
+        "referenced_count": 39,
+        "is_hot": 1
+      },
+      {
+        "tag_id": 14,
+        "tag_name": "户外运动",
+        "thumbnail_url": "",
+        "referenced_count": 68,
+        "is_hot": 1
+      },
+      {
+        "tag_id": 13,
+        "tag_name": "城市",
+        "thumbnail_url": "",
+        "referenced_count": 63
+      },
+      {
+        "tag_id": 15,
+        "tag_name": "乡村",
+        "thumbnail_url": "",
+        "referenced_count": 62,
+        "is_hot": 1
+      },
+      {
+        "tag_id": 23,
+        "tag_name": "晒飞机",
+        "thumbnail_url": "",
+        "referenced_count": 58,
+        "is_hot": 1
+      },
+      {
+        "tag_id": 20,
+        "tag_name": "穿云",
+        "thumbnail_url": "",
+        "referenced_count": 52,
+        "is_hot": 1
+      },
+      {
+        "tag_id": 21,
+          "tag_name": "大海",
+        "thumbnail_url": "",
+        "referenced_count": 50,
+        "is_hot": 1
+      },
+      {
+        "tag_id": 16,
+        "tag_name": "日出日落",
+        "thumbnail_url": "",
+        "referenced_count": 45,
+        "is_hot": 1
+      },
+      {
+        "tag_id": 18,
+        "tag_name": "夜景",
+        "thumbnail_url": "",
+        "referenced_count": 33,
+        "is_hot": 1
+      },
+      {
+        "tag_id": 19,
+        "tag_name": "延时",
+        "thumbnail_url": "",
+        "referenced_count": 31,
+        "is_hot": 1
+      },
+      {
+        "tag_id": 22,
+        "tag_name": "最美家乡",
+        "thumbnail_url": "",
+        "referenced_count": 29,
+        "is_hot": 1
+      },
+      {
+        "tag_id": 55,
+        "tag_name": "零度无人机",
+        "thumbnail_url": "",
+        "referenced_count": 23,
+        "is_hot": 1
+      }
+    ]
+  }
+}

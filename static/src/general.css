@@ -1,0 +1,12 @@
+html, body, div, span, h1, h2, h3, h4, p, img, strong, ol, ul, li {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+html{font-family: "Microsoft YaHei", "微软雅黑";}
+.fl{float: left;}
+.fr{float: right;}
+.cb{clear: both;}

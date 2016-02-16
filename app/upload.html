@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta name="author" content="jiong">
+    <meta http-equiv="Cache-Control" content="max-age=60">
+    <meta name="robots" content="all">
+    <meta name="description" content="航拍交流平台">
+    <meta name="keywords" content="酷派圈，爱航拍，航拍，摄影，大疆，无人机，零度，四轴，飞手">
+    <meta name="viewport" content="width=device-width">
+    <title>发布</title>
+    <link rel="stylesheet" href="http://7xqamv.com2.z0.glb.qiniucdn.com/general.min.css" type="text/css"/>
+    <style>
+        #upload{width: 1000px;margin: 0 auto;}
+        #upload-submit{width: 200px;height: 50px;border-radius: 10px;background-color: #fe9901;color: #ffffff;
+        line-height: 50px;text-align: center;margin: 500px auto 0 auto;}
+        #upload-hint{width: 100%;text-align: center;}
+
+        .upload-one{width: 1000px;height: 60px;}
+        .upload-one-progress-desc{width: 1000px;height: 20px;color: #9a9a9a;}
+        .upload-one-name{}
+        .upload-one-percent{margin-left: 40px;}
+        .upload-one-time{margin-left: 40px;}
+        .upload-one-size{margin-left: 40px;}
+        .upload-one-speed{margin-left: 40px;}
+        .upload-one-progress-bar{width: 998px;height: 20px;margin-top: 10px;border-radius: 5px;border: 1px solid #dcdcdc;}
+        .upload-one-progress-bar-percent{background-color: #556e98;width: 0;border-radius: 5px;height: 20px;}
+    </style>
+</head>
+<body>
+<div id="upload">
+    <h2 id="upload-title">上传我的视频</h2>
+    <div id="upload-list">
+    </div>
+    <div id="upload-submit">上传视频</div>
+    <p id="upload-hint">一旦点击上传视频即默认同意<a href="">爱航拍上传服务条款</a></p>
+</div>
+<script src="http://7xqamv.com2.z0.glb.qiniucdn.com/js-sea.js"></script>
+<script src="http://7xqamv.com2.z0.glb.qiniucdn.com/js-qiniu.js"></script>
+<script src="http://7xqamv.com2.z0.glb.qiniucdn.com/js-plupload.full.min.js"></script>
+<script>
+    seajs.config({
+        base: '../sea-modules/',
+        alias: {
+            'jquery': 'http://7xqamv.com2.z0.glb.qiniucdn.com/js-jquery.js'
+        }
+    });
+    // For development
+    if (location.href.indexOf("?dev") > 0) {
+        seajs.use('../static/src/upload', function () {
+        });
+    }
+    // For production
+    else {
+        seajs.use('../static/dist/upload',function(){
+        });
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+{
+  "code": 0,
+  "msg": "success",
+  "data": [
+    {
+      "video_id": "1",
+      "upload_date": "1452524420",
+      "title": "小兔子乖乖",
+      "play_url": "http://7xl4sc.com2.z0.glb.qiniucdn.com/351428-668-5rvxcqh9-hd.mp4",
+      "thumbnail_url": "http://7xl4sc.com2.z0.glb.qiniucdn.com/351428-668-5rvxcqh9-thumbnail-5.jpg",
+      "status": "0",
+      "video_task_id": "n_cd9016b4a0550446ea061dffc4afabef",
+      "user_id": "664"
+    },
+    {
+      "video_id": "2",
+      "upload_date": "1452564420",
+      "title": "小兔子",
+      "play_url": "http://7xl4sc.com2.z0.glb.qiniucdn.com/76f5f7-16-5mvtanx9-hd.mp4",
+      "thumbnail_url": "http://t-image.52hangpai.cn/repo//09/e4/091ab51975509ff536fa043e25a1dce4-240.jpg",
+      "status": "0",
+      "video_task_id": "n_cd9016b4a0550446ea061dffc4afabef",
+      "user_id": "664"
+    },
+    {
+      "video_id": "3",
+      "upload_date": "1452584420",
+      "title": "子",
+      "play_url": "http://7xl4sc.com2.z0.glb.qiniucdn.com/76f5f7-16-5mvtsfy8-hd.mp4",
+      "thumbnail_url": "http://7xl4sc.com2.z0.glb.qiniucdn.com/76f5f7-16-5mvtsfy8-thumbnail-5.jpg",
+      "status": "0",
+      "video_task_id": "n_cd9016b4a0550446ea061dffc4afabef",
+      "user_id": "664"
+    }
+  ]
+}

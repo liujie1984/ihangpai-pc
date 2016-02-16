@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta name="author" content="jiong">
+    <meta http-equiv="Cache-Control" content="max-age=60">
+    <meta name="robots" content="all">
+    <meta name="description" content="航拍交流平台">
+    <meta name="keywords" content="酷派圈，爱航拍，航拍，摄影，大疆，无人机，零度，四轴，飞手">
+    <meta name="viewport" content="width=device-width">
+    <title>列表</title>
+    <link rel="stylesheet" href="http://7xqamv.com2.z0.glb.qiniucdn.com/general.min.css" type="text/css"/>
+    <style>
+        .list-one{width: 1000px;height: 300px;border: 1px solid #a9a9a9;overflow: hidden;display: block;}
+        .list-left{height: 300px;width: 400px;}
+
+        .list-image{width: 400px;height: 300px;}
+        .list-right{width: 580px;height: 300px;}
+    </style>
+</head>
+<body>
+<div id="list-container">
+
+</div>
+<script src="http://7xqamv.com2.z0.glb.qiniucdn.com/js-sea.js"></script>
+<script>
+    seajs.config({
+        base: '../sea-modules/',
+        alias: {
+            'jquery': 'http://7xqamv.com2.z0.glb.qiniucdn.com/js-jquery.js'
+        }
+    });
+    // For development
+    if (location.href.indexOf("?dev") > 0) {
+        seajs.use('../static/src/list', function () {
+        });
+    }
+    // For production
+    else {
+        seajs.use('../static/dist/list',function(){
+        });
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+{
+  "code": 0,
+  "msg": "OK",
+  "data": {
+
+        "tag_id": 24,
+        "tag_name": "wa",
+        "thumbnail_url": "",
+        "referenced_count": 39,
+        "is_hot": 1
+
+  }
+}

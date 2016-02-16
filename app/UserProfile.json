@@ -1,0 +1,23 @@
+{
+  "code": 0,
+  "msg": "OK",
+  "data": {
+    "user_id": 652,
+    "nickname": "185****3155",
+    "gender": "M",
+    "avatar_url": "http://7xlavy.com2.z0.glb.qiniucdn.com/%20wang1607.jpg",
+    "is_vip": 0,
+    "location": "shenzhen",
+    "platform_name": "ihp",
+    "binding_mobile": "18576673155",
+    "drone_name": "dja",
+    "pub_count": 335,
+    "thread_count": 27,
+    "followed_count": 321,
+    "followers_count": 144,
+    "mix_tags_count": 3,
+    "is_followed": 0,
+    "is_my_follower": 0,
+    "flags": 0
+  }
+}

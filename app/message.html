@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta name="author" content="jiong">
+    <meta http-equiv="Cache-Control" content="max-age=60">
+    <meta name="robots" content="all">
+    <meta name="description" content="航拍交流平台">
+    <meta name="keywords" content="酷派圈，爱航拍，航拍，摄影，大疆，无人机，零度，四轴，飞手">
+    <meta name="viewport" content="width=device-width">
+    <title>我的消息</title>
+    <link rel="stylesheet" href="../static/dist/all.min.css">
+    <style>
+        #container{width: 1000px;margin: 0 auto;}
+        #message-selections{width: 1000px;height: 30px;line-height: 30px;background-color: #66A8CC;}
+        #message-selections li{display: inline-block;height: 30px;line-height: 30px;}
+        #message-selections li:hover{background-color: darkred;}
+    </style>
+</head>
+<body>
+<div id="container">
+    <h2 id="message-title">我的消息</h2>
+    <ul id="message-selections">
+        <li id="message-choose-praise" class="message-selection">赞</li>
+        <li id="message-choose-comment" class="message-selection">评论</li>
+        <li id="message-choose-follow" class="message-selection">关注</li>
+        <li id="message-choose-system" class="message-selection">系统通知</li>
+    </ul>
+    <ul id="message-contents">
+        <li id="message-content-praise" class="message-content"></li>
+        <li id="message-content-comment" class="message-content"></li>
+        <li id="message-content-follow" class="message-content"></li>
+        <li id="message-content-system" class="message-content"></li>
+    </ul>
+</div>
+<script src="http://7xqamv.com2.z0.glb.qiniucdn.com/js-sea.js"></script>
+<script>
+    seajs.config({
+        base: '../sea-modules/',
+        alias: {
+            'jquery': 'http://7xqamv.com2.z0.glb.qiniucdn.com/js-jquery.js'
+        }
+    });
+    // For development
+    if (location.href.indexOf("?dev") > 0) {
+        seajs.use('../static/src/message', function () {
+        });
+    }
+    // For production
+    else {
+        seajs.use('../static/dist/message',function(){
+        });
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <!-- <meta property="qc:admins" content="3411346606565201670116367" />zhengshi -->
+    <meta property="qc:admins" content="34113464421211765201670116367" />
+    <title>爱航拍</title>
+    <link rel="stylesheet" href="/static/css/cssreset-min.css" type="text/css"/>
+    <script type="text/javascript">
+        <?php if(isset($user_verify)){ ?>
+        var date=new Date();
+        date.setTime(date.getTime()-10000);
+        document.cookie="user_verify="+"<?php echo $user_verify; ?>"+"; expire="+date.toGMTString()+"; path=/;domain=.52hangpai.cn";
+        localStorage.user_id='<?php echo $user_id; ?>';
+        localStorage.avatar_url='<?php echo $avatar_url; ?>';
+        localStorage.nickname='<?php echo $nickname; ?>';
+        window.location="/api/publish";
+        // alreadyLogin(localStorage.nickname,localStorage.avatar_url);
+        <?php }?>
+    </script>
+    <style>
+        .fl{float: left;}
+        .fr{float: right;}
+        .cb{clear: both;}
+        html{font-family: "Microsoft YaHei", "微软雅黑";background-color: #f2f1ef;}
+        #blank{height: 200px;}
+        nav{height: 200px;width: 100%;background-color: #3b4554;font-family: "Microsoft YaHei", "微软雅黑";position: fixed;
+        z-index: 10;}
+        /*nav顶部*/
+        #nav-top{width: 1000px;height: 50px;margin: 0 auto;}
+        #nav-right{height: 50px;}
+        #ihp-login{height: 50px;display: none;}
+        #ihp-login a{font-size: 20px;color: #ffffff;height: 50px;line-height: 50px;display: inline-block;
+        text-decoration: none;}
+        #login-action{padding-right: 12px;cursor:pointer;}
+        #register-action{padding-left: 12px;cursor:pointer;}
+        .third-login{display: inline-block;margin-left: 14px;vertical-align: middle;cursor:pointer;}
+
+        #already-login{display: none;margin-right: -86px;}
+        #avatar{width: 46px;height: 46px;border: 2px solid #ffffff;border-radius: 23px;cursor:pointer;}
+        #nickname{color: #ffffff;font-size: 24px;cursor:pointer;margin-top: 8px;display: inline-block;vertical-align: top;}
+        #nav-publish{text-decoration: none;display: inline-block;margin-top: 8px;vertical-align: top;cursor: pointer;font-size: 24px;color: #ffffff;}   
+        #user-nick{height: 50px;}
+        #user-myworks{width: 126px;line-height: 50px;font-size:24px;text-align: center;z-index: 5;display: none; position: absolute;}
+        #user-myworks:hover{background-color: lightgray;}
+        #user-myworks a{text-decoration: none;}
+
+        /*nav中部*/
+        #nav-middle{height: 100px;margin: 0 auto;width: 1000px;}
+        #ihp-logo{height: 100px;}
+        #ihp-logo img{margin: 25px 0 0 0;}
+        /*nav底部*/
+        #nav-bottom{height: 50px;width: 1000px;margin: 0 auto;}
+        #nav-bottom ul li{display: inline-block;height: 50px;line-height: 50px;}
+        #nav-bottom ul li a{text-decoration: none;color: #ffffff;}
+        #nav-bottom ul li a:hover{background-color: red;}
+    </style>
+</head>
+<body>
+
+<nav>
+<div id="nav-top">
+    <div id="nav-right">
+        <div id="ihp-login" class="fr">
+            <a id="login-action" href="/api/login">登录</a>
+            <a>|</a>
+            <a id="register-action" href="/api/register">注册</a>
+
+            <a id="qq-login" class="third-login">
+                <img src="/static/img/qq.png" alt="qq登录"/>
+            </a>
+            <a id="weixin-login" class="third-login">
+                <img src="/static/img/weixin.png" alt="微信登录"/>
+            </a>
+            <a id="youku-login" class="third-login">
+                <img src="/static/img/youku.png" alt="优酷登录"/>
+            </a>
+        </div>
+
+        <div id="already-login" class="fr">
+            <div id="user-info">
+                <div id="user-nick">
+                    <span id="nickname"></span>
+                    <img id="avatar">
+                    <a id="nav-publish" href="/api/publish">发布</a>
+                </div>
+                <div id="user-myworks">
+                    <a href="">我的主页</a>
+                    <a href="">我的消息</a>
+                    <a id="quit">退出</a>
+                </div>
+            </div>    
+        </div> 
+
+    </div> 
+</div>
+
+<div id="nav-middle">
+    <div id="ihp-logo">
+        <img src="/static/img/ihp-logo.png" alt="ihp-logo"/>
+    </div> 
+</div>
+
+<div id="nav-bottom">
+    <ul>
+        <li><a href="/content/home">首页</a></li>
+        <li><a href="/content/thread_list">业内资讯</a></li>
+        <li><a href="/content/work_list">优秀作品</a></li>
+        <li><a href="/content/thread_list">交流区</a></li>
+        <li><a href="/content/thread_list">精品教程</a></li>
+        <li><a href="/content/thread_list">专业评测</a></li>
+        <li><a href="">下载APP</a></li>
+    </ul>
+</div>
+</nav> 
+<div id="blank"></div>
+<script src="http://7xqamv.com2.z0.glb.qiniucdn.com/js-sea.js"></script>
+<script>
+    seajs.config({
+        base: '../sea-modules/',
+        alias: {
+            'jquery': 'http://7xqamv.com2.z0.glb.qiniucdn.com/js-jquery.js'
+        }
+    });
+    // For development
+    if (location.href.indexOf("?dev") > 0) {
+        seajs.use('../static/src/nav', function () {
+        });
+    }
+    // For production
+    else {
+        seajs.use('../static/dist/nav',function(){
+        });
+    }
+</script>
+</body>
+</html>

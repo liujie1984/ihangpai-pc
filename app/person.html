@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta name="author" content="jiong">
+    <meta http-equiv="Cache-Control" content="max-age=60">
+    <meta name="robots" content="all">
+    <meta name="description" content="航拍交流平台">
+    <meta name="keywords" content="酷派圈，爱航拍，航拍，摄影，大疆，无人机，零度，四轴，飞手">
+    <meta name="viewport" content="width=device-width">
+    <title>个人中心</title>
+    <link rel="stylesheet" href="../static/dist/all.min.css">
+    <style>
+        body{font-family: "Microsoft YaHei", "微软雅黑"}
+        #person-info{width: 100%;position: fixed;z-index: 2;}
+        #person-background{height: 300px;overflow: hidden;}
+        .person-background-page{height: 300px;}
+        /*背景第一页*/
+        .person-background-page-image{height: 300px;width: 100%;display: block;}
+        #person-background-page0{display: block;}
+        #person-background-page0-info{height: 40px;position: relative;top: -60px;left: 350px;;}
+        #person-nickname{height: 40px;line-height: 40px;display: inline-block;color: #ffffff;}
+        #person-gender{vertical-align: middle;}
+        #person-modify{vertical-align: middle;}
+        /*背景第二页*/
+        #person-background-page1{display: none;}
+        #person-background-page1-info{position: relative;top: -380px; left: 100px;z-index: 2;color: #000000;}
+        .gaussian-blur{filter: url(blur.svg#blur); /* FireFox, Chrome, Opera */  -webkit-filter: blur(10px); /* Chrome, Opera */  -moz-filter: blur(10px);
+            -ms-filter: blur(10px);  filter: blur(10px);  filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=10, MakeShadow=false); /* IE6~IE9 */
+        }
+        /*背景选择*/
+        #person-background-choose{position: relative;top: -40px;left: 80%;display: inline-block;z-index: 2;color: #ffffff;}
+        #person-background-choose li{width: 20px;height: 20px;border-radius: 10px;
+            list-style-type:none;display: inline-block;}
+        #person-background-choose-0{background-color: red;}
+        #person-background-choose-1{background-color: yellow;}
+        /*个人头像*/
+        #person-face{width: 100px;height: 100px;border-radius: 50px;position: relative;margin-top: -50px;z-index: 3;left: 150px;}
+        /*个人详情*/
+        #person-details-top{height: 100px;margin-top: -50px;}
+        #person-details-top span{height: 100px;display: block;text-decoration: none;text-align: center}
+        #person-details-works{width: 40%;background-color: rosybrown}
+        #person-details-tag{width: 20%;background-color: #bababa}
+        #person-details-follow{width: 20%;background-color: #dcdcdc}
+        #person-details-fans{width: 20%;background-color: cadetblue;}
+        #person-details-show{padding-top: 400px;margin: 0 auto;width: 1000px;}
+    </style>
+</head>
+<body>
+<div id="container">
+    <!--用户信息-->
+    <div id="person-info">
+        <div id="person-background">
+            <div id="person-background-page0" class="person-background-page">
+                <img class="person-background-page-image" src="http://7xqamv.com2.z0.glb.qiniucdn.com/person-background.jpg" alt=""/>
+                <span id="person-background-page0-info">
+                    <span id="person-nickname">wangjiong</span>
+                    <img id="person-gender" src="http://7xqamv.com2.z0.glb.qiniucdn.com/icon-man.png" alt=""/>
+                    <a href=""><img id="person-modify" src="http://7xqamv.com2.z0.glb.qiniucdn.com/icon-modify.png" alt=""/></a>
+                </span>
+            </div>
+            <div id="person-background-page1" class="person-background-page">
+                <img class="person-background-page-image gaussian-blur" src="http://7xqamv.com2.z0.glb.qiniucdn.com/person-background.jpg" alt=""/>
+                <span id="person-background-page1-info">
+                    <p>设备：<span id="person-drone"></span></p>
+                    <p>地区：<span id="person-location"></span></p>
+                </span>
+            </div>
+            <ul id="person-background-choose">
+                <li class="person-background-choose" id="person-background-choose-0"></li>
+                <li class="person-background-choose" id="person-background-choose-1"></li>
+            </ul>
+        </div>
+        <img id="person-face" src="http://7xqamv.com2.z0.glb.qiniucdn.com/face.jpg" alt=""/>
+        <div id="person-details-top">
+            <span id="person-details-works" class="fl person-details">
+                <p id="person-details-pub-count"></p>
+                <p>作品</p>
+            </span>
+            <!--<span id="person-details-tag" class="fl person-details">-->
+                <!--<p id="person-details-tag-count">234</p>-->
+                <!--<p>标签</p>-->
+            <!--</span>-->
+            <span id="person-details-follow" class="fl person-details">
+                <p id="person-details-followed-count"></p>
+                <p>关注</p>
+            </span>
+            <span id="person-details-fans" class="fl person-details">
+                <p id="person-details-followers-count"></p>
+                <p>粉丝</p>
+            </span>
+        </div>
+    </div>
+    <div id="person-details-show">
+        <div id="person-list-works" class="person-list">
+        </div>
+        <div id="person-list-tag" class="person-list">
+            <div id="person-list-tag-title">
+                <span id="person-list-tag-choose-user">关注标签</span>
+                <span id="person-list-tag-choose-follow">我的标签</span>
+            </div>
+            <div id="person-list-tag-user">
+
+            </div>
+            <div id="person-list-tag-follow">
+
+            </div>
+        </div>
+        <div id="person-list-follow" class="person-list">
+            follow
+        </div>
+        <div id="person-list-fans" class="person-list">
+            fans
+        </div>
+    </div>
+</div>
+
+<script src="http://7xqamv.com2.z0.glb.qiniucdn.com/js-sea.js"></script>
+<script>
+    seajs.config({
+        base: '../sea-modules/',
+        alias: {
+            'jquery': 'http://7xqamv.com2.z0.glb.qiniucdn.com/js-jquery.js'
+        }
+
+    });
+    // For development
+    if (location.href.indexOf("?dev") > 0) {
+        seajs.use('../static/src/person', function () {
+        });
+    }
+    // For production
+    else {
+        seajs.use('../static/dist/person',function(){
+        });
+    }
+</script>
+</body>
+</html>

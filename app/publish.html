@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta name="author" content="jiong">
+    <meta http-equiv="Cache-Control" content="max-age=60">
+    <meta name="robots" content="all">
+    <meta name="description" content="航拍交流平台">
+    <meta name="keywords" content="酷派圈，爱航拍，航拍，摄影，大疆，无人机，零度，四轴，飞手">
+    <meta name="viewport" content="width=device-width">
+    <title>发布</title>
+    <!--<link rel="stylesheet" href="../static/dist/all.min.css">-->
+    <style>
+        html, body, div, span, h1, h2, h3, h4, p, img, strong, ol, ul, li {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+            vertical-align: baseline;
+            background: transparent;
+        }
+        html{font-family: "Microsoft YaHei", "微软雅黑";}
+        .fl{float: left;}
+        .fr{float: right;}
+        .cb{clear: both;}
+        /*发布类型按钮选择区域*/
+        #pub-main{background-color: #ffffff;position: relative;margin:85px 0 0 -580px;left: 50%;}
+        #pub-type{z-index: 2;position: absolute;}
+        .pub-btn{width: 120px;height: 64px;background-color: #6688c2;border-radius: 8px;cursor:pointer;}
+        .pub-btn img{display: inline-block;margin: 17px 0 0 15px;vertical-align: middle}
+        .pub-btn span{color: #ffffff;display: inline-block;vertical-align: middle;margin: 17px 0 0 5px;}
+        #pub-type-image{margin-top: 38px;background-color: #556e98;}
+        #pub-type-video{margin-top: 18px;}
+        #pub-type-imgtext{margin-top: 18px;}
+
+        /*发布内容*/
+        #pub-content{background-color: #f2f1ef;width: 1000px;margin-left: 80px;padding-bottom: 100px; display: block;overflow: auto;}
+        /*发布标题*/
+        #pub-title-container{display: inline-block;width: 720px;height: 62px;border-radius: 8px;border: 1px solid #dcdcdc;
+            background-color: #ffffff;margin: 52px 0 0 86px;}
+        #pub-title-content{width: 90%;margin: 0 0 0 5%;height: 60px;font-size: 24px;border: none;outline: none;}
+        .submit-btn{width: 116px;height: 48px;line-height: 48px;text-align: center;display: inline-block;color: #ffffff;
+            background-color: #fe9901;font-size: 24px;border-radius: 8px;margin-left: 19px;cursor:pointer;}
+        /*发布详情图片*/
+        #pub-desc-image{display: block;width: 1000px;}
+        #image-img-thumbnails{margin: 46px 0 0 86px;float: left;width: 900px;}
+        .image-thumbnail-container{width: 260px;margin: 0 20px 20px 0;float: left;height: 180px;}
+        .image-thumbnail{width: 260px;height: 170px;}
+        .image-thumbnail-cancel{width: 31px;height: 31px;position: relative;left: 245px;top: -190px;cursor:pointer;z-index: 5;}
+        .image-thumbnail-loading-block{display: none;position: relative;top:-210px;left: 0;}
+        .image-thumbnail-black{width: 260px;height: 170px;background-color: #000000; left:0;opacity:0.5;position:relative;z-index:2;}
+        .image-thumbnail-loading{border-radius: 28px;position: relative;top:-110px;left:100px;z-index: 3;}
+        .image-thumbnail-loading-percent{position: relative;left: 56px;top: -130px;color: #ffffff;z-index: 4;font-size: 14px;display: inline-block;}
+        
+        #out-image-img-border{width: 260px;height: 170px;border: 2px dashed #dcdcdc;}
+        #add-image-img-btn{width: 46px;height: 46px;display: block;margin: 60px 0 0 100px;cursor:pointer;}
+        /*发布视频*/
+        #pub-desc-video{display: none;width: 1000px;overflow: auto;}
+        #pub-desc-video-border{margin: 46px 0 0 86px;width: 260px;height: 170px;border: 2px dashed #dcdcdc;}
+        #pub-desc-video-add{width: 46px;height: 46px;display: block;margin: 60px 0 0 100px;cursor:pointer;}
+
+        #pub-desc-video-content{margin: 46px 0 0 86px;display: none;}
+        #pub-desc-video-thumbnail{width: 260px;height: 170px;}
+        #pub-desc-video-thumbnail-cancel{width: 31px;height: 31px;position: relative;left: -20px;top: -150px;cursor:pointer;z-index: 3;}
+        /*发表动态*/
+        #pub-desc-imgtext{display: none;width: 1000px;overflow: auto;}
+        .imgtext-btn{display: inline-block;height: 20px;background-color: blue;color: #ffffff;}
+        #pub-desc-imgtext-add{margin: 0 0 0 85px;padding: 3px;border-radius: 3px;background-color: blue;color: #ffffff;}
+        #richedit{border: 1px solid #dcdcdc;min-height: 300px;margin: 0 0 0 85px;width: 860px;padding: 10px;}
+
+        /*发布标签选择*/
+        #pub-tags-show{position: absolute;max-height: 400px;width: 200px;z-index: 2;background-color: #589be3;display: none;}
+        #pub-tags-all{overflow: auto;max-height: 370px;}
+        #pub-tags-list{overflow: auto;}
+        #pub-add-new-tag{}
+
+        /*视频选择*/
+        #video-list-block{width: 1000px;height: 800px;position: fixed;background-color: cornflowerblue;left: 50%;top: 50%;
+        margin-left: -500px;margin-top: -400px;z-index: 4;display: none;}
+        #video-list-cancel{position: absolute;right: -15px;top: -15px;  }
+        #video-list-all{height: 750px;overflow: auto;}
+        #video-list-sure{height: 50px;line-height: 50px;}
+        .video-one{height: 100px;width: 100px;
+            float: left;}
+        .video-one-thumbnail{height: 60px;width: 100px;}
+        .video-one-title{width: 100%;height: 20px;line-height: 20px;}
+        .video-one-date{width: 100%;height: 20px;line-height: 20px;}
+    </style>
+</head>
+<body>
+<div id="pub">
+<div id="pub-main" class="fl">
+    <div>
+        <a href="">上传我的视频</a>
+    </div>
+    <!--发布按钮区域开始-->
+    <div id="pub-type" class="fl">
+        <div id="pub-type-image" class="pub-btn">
+            <img src="http://7xqamv.com2.z0.glb.qiniucdn.com/icon-upload-image.png" alt="发图片按钮"/>
+            <span>发图片</span>
+        </div>
+        <div id="pub-type-video" class="pub-btn">
+            <img src="http://7xqamv.com2.z0.glb.qiniucdn.com/icon-upload-video.png" alt="发布视频按钮"/>
+            <span>发视频</span>
+        </div>
+        <div id="pub-type-imgtext" class="pub-btn">
+            <img src="http://7xqamv.com2.z0.glb.qiniucdn.com/icon-upload-post.png" alt="发动态按钮"/>
+            <span>发话题</span>
+        </div>
+    </div>
+    <!-- 发布按钮区域结束 -->
+
+    <!--发布内容-->
+    <div id="pub-content">
+        <div id="pub-title">
+            <span id="pub-title-container" class="inputform">
+                <input id="pub-title-content" type="text" placeholder="请输入标题(25字以内)"/>
+            </span>
+            <span id="submit-image" class="submit-btn" style="display: inline-block">
+                发布
+            </span>
+            <span id="submit-video" class="submit-btn" style="display: none">
+                发布
+            </span>
+            <span id="submit-imgtext" class="submit-btn" style="display: none">
+                发布
+            </span>
+        </div>
+        <!--发布详情-->
+        <div id="pub-desc">
+            <!--发布图片-->
+            <div id="pub-desc-image">
+                <div id="image-img-thumbnails">
+                    <div class="fl image-thumbnail-container" id="image-thumbnail-container-append" style="display:none">
+                        <img class="image-thumbnail" alt="发布缩略图"/>
+                        <img class="image-thumbnail-cancel" src="http://7xqamv.com2.z0.glb.qiniucdn.com/icon-cancel.png" alt="删除"/>
+                        <div class="image-thumbnail-loading-block">
+                            <div class="image-thumbnail-black"></div>
+                            <img class="image-thumbnail-loading" src="http://7xqamv.com2.z0.glb.qiniucdn.com/icon-image-uploading.png" alt="图片加载"/>
+                            <p class="image-thumbnail-loading-percent">0%</p>
+                        </div>
+                    </div>
+                    <div id="out-image-img-border" class="fl">
+                        <img id="add-image-img-btn" src="http://7xqamv.com2.z0.glb.qiniucdn.com/icon-upload-add.png" alt="添加按钮"/>
+                    </div>
+                </div>
+            </div>
+            <!--发布视频-->
+            <div id="pub-desc-video">
+                <div id="pub-desc-video-border" class="fl">
+                    <img id="pub-desc-video-add" src="http://7xqamv.com2.z0.glb.qiniucdn.com/icon-upload-add.png" alt="添加按钮"/>
+                </div>
+                <div id="pub-desc-video-content">
+                    <img id="pub-desc-video-thumbnail" alt="发布缩略图"/>
+                    <img id="pub-desc-video-thumbnail-cancel" src="http://7xqamv.com2.z0.glb.qiniucdn.com/icon-cancel.png" alt="删除"/>
+                </div>
+            </div>
+            <!--发布图文混排-->
+            <div id="pub-desc-imgtext">
+                <span id="pub-desc-imgtext-add" class="imgtext-btn">图片</span>
+                <span id="pub-desc-imgtext-addvideo" class="imgtext-btn">视频</span>
+                <div id="richedit" contenteditable="true">
+
+                </div>
+            </div>
+        </div>
+        <!--发布标签选择-->
+        <div id="pub-tags">
+            <div id="pub-already-tags"><span id="pub-add-tags">标签</span></div>
+            <div id="pub-tags-show">
+                <div id="pub-tags-all">
+                    <ul id="pub-tags-list">
+
+                    </ul>
+                    <span id="pub-tags-more">获取更多</span>
+                </div>
+                <input id="pub-add-new-tag" type="text"/>
+            </div>
+        </div>
+        <!--发布标签结束-->
+    </div>
+    <!--发布内容结束-->
+</div>
+    <div id="video-list-block">
+        <img id="video-list-cancel" src="http://7xqamv.com2.z0.glb.qiniucdn.com/icon-cancel.png" alt=""/>
+        <div id="video-list-my">
+            <h3>我的视频</h3>
+            <div id="video-list-all">
+
+            </div>
+        </div>
+        <div id='video-list-sure'>确定</div>
+    </div>
+</div>
+<script src="http://7xqamv.com2.z0.glb.qiniucdn.com/js-sea.js"></script>
+<script src="http://7xqamv.com2.z0.glb.qiniucdn.com/js-plupload.full.min.js"></script>
+<script>
+    seajs.config({
+        base: '../sea-modules/',
+        alias: {
+            'jquery': 'http://7xqamv.com2.z0.glb.qiniucdn.com/js-jquery.js'
+        }
+    });
+    // For development
+    if (location.href.indexOf("?dev") > 0) {
+        seajs.use('../static/src/publish', function () {
+        });
+    }
+    // For production
+    else {
+        seajs.use('../static/dist/publish',function(){
+        });
+    }
+</script>
+</body>
+</html>
